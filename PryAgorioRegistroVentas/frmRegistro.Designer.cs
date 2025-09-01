@@ -34,10 +34,10 @@
             lblPrecioUnitario = new Label();
             dtpFecha = new DateTimePicker();
             cmbProducto = new ComboBox();
-            txtPrecioUnitario = new TextBox();
             btnRegistrar = new Button();
             txtCantidad = new TextBox();
             btnCancelar = new Button();
+            maskedTextBox1 = new MaskedTextBox();
             SuspendLayout();
             // 
             // lblFecha
@@ -87,7 +87,7 @@
             // dtpFecha
             // 
             dtpFecha.Format = DateTimePickerFormat.Short;
-            dtpFecha.Location = new Point(145, 49);
+            dtpFecha.Location = new Point(155, 49);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(83, 23);
             dtpFecha.TabIndex = 4;
@@ -95,21 +95,16 @@
             // cmbProducto
             // 
             cmbProducto.FormattingEnabled = true;
-            cmbProducto.Location = new Point(145, 97);
+            cmbProducto.Location = new Point(155, 97);
             cmbProducto.Name = "cmbProducto";
             cmbProducto.Size = new Size(142, 23);
             cmbProducto.TabIndex = 5;
-            // 
-            // txtPrecioUnitario
-            // 
-            txtPrecioUnitario.Location = new Point(166, 197);
-            txtPrecioUnitario.Name = "txtPrecioUnitario";
-            txtPrecioUnitario.Size = new Size(100, 23);
-            txtPrecioUnitario.TabIndex = 7;
+            cmbProducto.SelectedIndexChanged += this.cmbProducto_SelectedIndexChanged;
             // 
             // btnRegistrar
             // 
             btnRegistrar.BackColor = Color.White;
+            btnRegistrar.Enabled = false;
             btnRegistrar.Location = new Point(273, 298);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(128, 51);
@@ -119,7 +114,8 @@
             // 
             // txtCantidad
             // 
-            txtCantidad.Location = new Point(155, 148);
+            txtCantidad.Enabled = false;
+            txtCantidad.Location = new Point(155, 147);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(100, 23);
             txtCantidad.TabIndex = 9;
@@ -134,16 +130,23 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
             // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new Point(155, 199);
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(100, 23);
+            maskedTextBox1.TabIndex = 11;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(511, 450);
+            ClientSize = new Size(442, 418);
+            Controls.Add(maskedTextBox1);
             Controls.Add(btnCancelar);
             Controls.Add(txtCantidad);
             Controls.Add(btnRegistrar);
-            Controls.Add(txtPrecioUnitario);
             Controls.Add(cmbProducto);
             Controls.Add(dtpFecha);
             Controls.Add(lblPrecioUnitario);
@@ -152,6 +155,7 @@
             Controls.Add(lblFecha);
             Name = "Form1";
             Text = "Registro de ventas";
+            TextChanged += this.Form1_TextChanged;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -164,9 +168,9 @@
         private Label lblPrecioUnitario;
         private DateTimePicker dtpFecha;
         private ComboBox cmbProducto;
-        private TextBox txtPrecioUnitario;
         private Button btnRegistrar;
         private TextBox txtCantidad;
         private Button btnCancelar;
+        private MaskedTextBox maskedTextBox1;
     }
 }
